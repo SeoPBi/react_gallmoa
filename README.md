@@ -1,3 +1,7 @@
+clone 하고 npm install global react-scripts 하고 실행해야됨
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
