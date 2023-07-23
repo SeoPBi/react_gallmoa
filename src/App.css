@@ -1,0 +1,136 @@
+.App {
+  text-align: left;
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.App-header {
+  padding: 10px;
+}
+
+.App-title {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #000000;
+  text-decoration: none;
+}
+
+.App-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center; /* 가운데 정렬을 위한 스타일 추가 */
+}
+
+.footer-text {
+  text-align: center;
+}
+
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px; /* 버튼들 사이의 간격을 주기 위해 margin-top 추가 */
+}
+
+.main-button {
+  margin: 3px;
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex; /* 아이콘과 텍스트를 가로로 정렬하기 위해 flexbox 사용 */
+  align-items: center; /* 세로 중앙 정렬을 위해 flexbox 사용 */
+}
+
+.App-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-menu {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the search input */
+.search-input {
+  width: 180px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.login-link {
+  /* 기존 스타일 유지 */
+  font-size: 24px;
+  margin: 10px 0;
+  color: #000000;
+  text-decoration: none;
+}
+
+.advertisement {
+  margin-top: 20px;
+  display: flex; /* 가로 중앙 정렬을 위해 flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+.advertisement img {
+  width: 100%;
+  height: auto;
+}
+
+.ad-image {
+  width: 900px;
+  height: 400px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.slide {
+  display: none;
+  transition: opacity 1s ease; /* 슬라이드 전환 효과를 위해 추가 */
+}
+
+.slide.active {
+  display: block;
+}
+
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.timeline-date {
+  width: calc(100% / 7); /* 타임라인의 날짜를 7개씩 한 줄에 표시 */
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+* 원하는 날짜 형식 적용 */
+.timeline-date:before {
+  content: attr(data-date);
+}
