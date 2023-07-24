@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { FaFutbol, FaUsers, FaMapMarkerAlt, FaUserFriends, FaUserCircle } from 'react-icons/fa';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import {
+  FaFutbol,
+  FaUsers,
+  FaMapMarkerAlt,
+  FaUserFriends,
+  FaUserCircle,
+} from "react-icons/fa";
+import "./App.css";
 
 const images = [
-  'img/01.jpg',
-  'img/02.jpg',
-  'img/03.jpg',
-  'img/04.jpg',
-  'img/05.jpg',
+  "img/01.jpg",
+  "img/02.jpg",
+  "img/03.jpg",
+  "img/04.jpg",
+  "img/05.jpg",
 ];
 
 function getDatesFromToday(days) {
@@ -38,6 +44,18 @@ function App() {
   // 날짜를 클릭했을 때 호출되는 함수
   const handleDateClick = (date) => {
     setSelectedDate(date);
+  };
+
+  // Function to navigate to the next image
+  const handleNextImage = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+  };
+
+  // Function to navigate to the previous image
+  const handlePrevImage = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? images.length - 1 : prevSlide - 1
+    );
   };
 
   return (
@@ -78,14 +96,24 @@ function App() {
 
         {/* 이미지 슬라이드 쇼 */}
         <div className="slideshow-container">
+          {/* Add left arrow */}
+          <div className="arrow left-arrow" onClick={handlePrevImage}>
+            &#9664;
+          </div>
+
           {images.map((image, index) => (
             <div
               key={index}
-              className={`slide ${index === currentSlide ? 'active' : ''}`}
+              className={`slide ${index === currentSlide ? "active" : ""}`}
             >
               <img src={image} alt={`Slide ${index}`} className="ad-image" />
             </div>
           ))}
+
+          {/* Add right arrow */}
+          <div className="arrow right-arrow" onClick={handleNextImage}>
+            &#9654;
+          </div>
         </div>
 
         {/* 타임라인 */}
@@ -93,13 +121,18 @@ function App() {
           {timelineDates.map((date, index) => (
             <div
               key={index}
-              className={`timeline-date ${selectedDate === date ? 'selected' : ''}`} // 선택된 날짜에 스타일을 추가할 클래스
+              className={`timeline-date ${
+                selectedDate === date ? "selected" : ""
+              }`} // 선택된 날짜에 스타일을 추가할 클래스
               onClick={() => handleDateClick(date)} // 클릭 이벤트 처리 함수 호출
             >
-              {date.toLocaleDateString('ko-KR', {
-                month: '2-digit',
-                day: '2-digit',
-              }).replace('.', '/').trim()}
+              {date
+                .toLocaleDateString("ko-KR", {
+                  month: "2-digit",
+                  day: "2-digit",
+                })
+                .replace(".", "/")
+                .trim()}
             </div>
           ))}
         </div>
@@ -107,10 +140,11 @@ function App() {
         {/* 선택된 날짜 정보 보여주는 컴포넌트 */}
         {selectedDate && (
           <div className="selected-date-info">
-            선택한 날짜: {selectedDate.toLocaleDateString('ko-KR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
+            선택한 날짜:{" "}
+            {selectedDate.toLocaleDateString("ko-KR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </div>
         )}

@@ -134,3 +134,22 @@
 .timeline-date:before {
   content: attr(data-date);
 }
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7); /* Background color for arrows */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.left-arrow {
+  left: 0px; /* Position the left arrow on the left side */
+}
+
+.right-arrow {
+  right: -100px; /* Position the right arrow on the right side */
+}
